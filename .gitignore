@@ -6,3 +6,6 @@ temp-dist
 *.local
 .idea
 .env
+
+.vscode/
+.vscode/*

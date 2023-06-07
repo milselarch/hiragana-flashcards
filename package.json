@@ -1,5 +1,5 @@
 {
-  "name": "vue3-project",
+  "name": "hiragana-flashcards",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -16,9 +16,13 @@
     "@vee-validate/rules": "^4.5.11",
     "@zhuowenli/vue-feather-icons": "^5.0.2",
     "axios": "^0.24.0",
+    "clone": "^2.1.2",
     "date-fns": "^2.28.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.14",
+    "prng": "0.0.1",
+    "pseudo-random": "^0.6.0",
+    "shuffle": "^0.2.5",
     "vee-validate": "^4.5.11",
     "vue": "^3.2.35",
     "vue-i18n": "^9.2.0-beta.17",
@@ -35,7 +39,7 @@
     "eslint": "^8.19.0",
     "eslint-plugin-vue": "^9.1.1",
     "postcss": "^8.4.14",
-    "sass": "^1.52.1",
+    "sass": "^1.62.1",
     "sass-loader": "^12.6.0",
     "tailwindcss": "^3.1.4",
     "typescript": "^4.4.3",
@@ -48,5 +52,9 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 SFCs.",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
 }

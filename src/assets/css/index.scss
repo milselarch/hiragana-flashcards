@@ -8,3 +8,18 @@
 
 @import "forms";
 @import "transitions";
+
+html, body {
+    background-color: #111;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+* {
+    color: #FFF;
+}
+
+#app {
+    margin: auto;
+}
