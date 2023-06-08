@@ -133,6 +133,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+*::selection {
+  background-color: #FFF;  /* Set the background color for selected text */
+  color: #222;              /* Set the text color for selected text */
+}
+
 div#container {
   margin: auto;
   display: flex;
@@ -183,7 +188,7 @@ div#container {
 
     & > input#seed {
       border: none;
-      border-bottom: 2px solid #AAA;
+      border-bottom: 2px solid #777;
       outline: none;
       // transition: border-color 0.3s ease-in-out;
       background-color: #111;
@@ -192,6 +197,18 @@ div#container {
       margin-left: auto;
       margin-right: auto;
       text-align: center;
+
+      &::selection {
+        background-color: #FFF;  /* Set the background color for selected text */
+        color: #222;              /* Set the text color for selected text */
+      }
+
+      &:hover {
+        border-color: #BBB;
+      }
+      &:active {
+        border-color: #FFF;
+      }
     }
 
     & > .buttons {
