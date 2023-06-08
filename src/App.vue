@@ -17,7 +17,7 @@ export default defineComponent({
   },
   methods: {
     setTitle() {
-      document.title = `${String(this.$route.name)} - ${DEFAULT_APP_TITLE}`
+      document.title = `${DEFAULT_APP_TITLE} - ${String(this.$route.name)} `
     },
   },
 })
