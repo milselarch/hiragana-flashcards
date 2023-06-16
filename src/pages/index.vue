@@ -1,23 +1,28 @@
 <template>
-  <div id="container">
-    <button class="arrow" @click="previous_card">
-      ᐊ
-    </button>
-    
+  <div id="container">    
+    <div class="top-offset"></div>
+
     <div id="card-display">
       <input 
         id="seed" type="text" v-model="seed_input"
         maxlength="8"
       />
 
-      <p class="question" @click="toggle_show_answer">
-        {{flashcards[index][0]}}
-      </p>
-      <p class="answer" >
-        {{ displayed_answer }}
-      </p>
+      <div class="question" @click="toggle_show_answer">
+        <p class="question"> 
+          {{flashcards[index][0]}}
+        </p>
+        <p class="answer" >
+          {{ displayed_answer }}
+        </p>
+      </div>
 
+      
       <div class="buttons">
+        <button class="arrow" @click="previous_card">
+          ᐊ
+        </button>
+
         <button 
           id="display-toggle"
           @click="toggle_show_answer"
@@ -29,14 +34,16 @@
         <button id="reset" @click="reset">
           ↺
         </button>
+
+        <button class="arrow" @click="next_card">
+          ᐅ
+        </button>
       </div>
 
       <p id="card-no"> {{index+1}} / {{flashcards.length}} </p>
     </div>
 
-    <button class="arrow" @click="next_card">
-      ᐅ
-    </button>
+    <div class="bottom-offset"></div>
   </div>
 </template>
 
@@ -138,32 +145,39 @@ export default defineComponent({
   color: #222;              /* Set the text color for selected text */
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  src: url('@/assets/fonts/OpenSans-Regular.ttf') format('ttf');
+  /* You can specify multiple font formats (e.g., woff2, ttf) for better browser compatibility */
+}
+
+* {
+  font-family: 'Open Sans';
+}
+
 div#container {
   margin: auto;
   display: flex;
   justify-content: center;
-
-  & button.arrow {
-    margin: auto;
-    font-size: 2rem;
-    user-select: none;
-    color: #777;
-
-    &:hover {
-      color: #AAA;
-    }
-    &:active {
-      color: #FFF;
-    }
+  flex-direction: column;
+  height: 100vh;
+  
+  & > div.top-offset {
+    flex-grow: 0.5;
   }
+  & > div.bottom-offset {
+    flex-grow: 1;
+  }
+
   & div#card-display {
-    margin: 2rem;
+    // margin-left: 2rem;
+    // margin-right: 2rem;
     flex-direction: column;
     text-align: center;
-    padding-bottom: 10rem;
+    flex-grow: 0;
+    // padding-bottom: 10rem;
 
-    & > p.question {
-      font-size: 10rem;
+    & > div.question {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       background-color: #333;
@@ -171,6 +185,9 @@ div#container {
       margin-bottom: 1rem;
       user-select: none;
       width: 22rem;
+
+      display: flex;
+      flex-direction: column;
       
       cursor: pointer;
 
@@ -180,10 +197,18 @@ div#container {
       &:active {
         background-color: #555;
       }
-    }
-    & > p.answer {
-      margin: auto;
-      width: fit-content;
+
+      & > p.question {
+        font-size: 9rem;
+        margin-top: -1rem;
+      }
+
+      & > p.answer {
+        margin: auto;
+        width: fit-content;
+        margin-bottom: 1rem;
+        margin-top: -1rem;
+      }
     }
 
     & > input#seed {
@@ -215,12 +240,27 @@ div#container {
       display: flex;
       margin-top: 1rem;
       justify-content: space-between;
-      width: 15rem;
+      width: 20rem;
       user-select: none;
       margin-left: auto;
       margin-right: auto;
 
-      & > button {
+      & > button.arrow {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 2rem;
+        user-select: none;
+        color: #777;
+
+        &:hover {
+          color: #AAA;
+        }
+        &:active {
+          color: #FFF;
+        }
+      }
+
+      & > button:not(.arrow) {
         padding: 0.5rem;
         border: 1px solid #777;
         border-radius: 0.25rem;
