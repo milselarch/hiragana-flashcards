@@ -161,7 +161,8 @@ div#container {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  
+  width: 100vw;
+
   & > div.top-offset {
     flex-grow: 0.5;
   }
@@ -178,6 +179,7 @@ div#container {
     // padding-bottom: 10rem;
 
     & > div.question {
+      margin: auto;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       background-color: #333;
